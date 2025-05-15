@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GremioproyectApplication<gremioproyect>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.elgrangremio.gremioproyect.GremioproyectApplication",
+            "projectName": "gremioproyect",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

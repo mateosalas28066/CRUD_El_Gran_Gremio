@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Gran Gremio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="fotos/logo-removebg-preview.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Sección: Título -->
+  <section class="text-center py-8">
+    <h1 class="text-3xl font-bold">🐾 Mascotas en Adopción 🐾</h1>
+  </section>
+
+  <!-- Sección: Login -->
+  <div id="login-section" class="text-center my-4">
+    <form id="login-form" class="max-w-md mx-auto grid gap-4">
+      <input type="email" name="email" placeholder="Correo electrónico" required class="p-2 border rounded" />
+      <input type="password" name="password" placeholder="Contraseña" required class="p-2 border rounded" />
+      <button type="submit" class="bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">Iniciar sesión</button>
+    </form>
+    <p id="login-status" class="text-sm text-gray-600 mt-2"></p>
+  </div>
+  <div id="register-section" class="text-center my-8">
+    <h2 class="text-xl font-bold mb-4">¿Aún no tienes cuenta? Regístrate</h2>
+    <form id="register-form" class="max-w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input type="text" name="nombre" placeholder="Nombre" required class="p-2 border rounded" />
+      <input type="text" name="apellido" placeholder="Apellido" required class="p-2 border rounded" />
+      <input type="email" name="email" placeholder="Correo electrónico" required class="p-2 border rounded" />
+      <input type="password" name="password" placeholder="Contraseña" required class="p-2 border rounded" />
+      <input type="text" name="telefono" placeholder="Teléfono" required class="p-2 border rounded" />
+      <input type="text" name="direccion" placeholder="Dirección" required class="p-2 border rounded" />
+      <button type="submit" class="col-span-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+        Registrarme
+      </button>
+    </form>
+    <p id="register-status" class="mt-2 text-sm text-gray-600"></p>
+  </div>
+
+  <!-- Sección: Publicar mascota (visible solo si logueado) -->
+  <div id="create-section" class="hidden max-w-2xl mx-auto p-4 bg-white shadow rounded-lg mb-6">
+    <h2 class="text-xl font-semibold mb-4 text-center">Publicar una nueva mascota</h2>
+    <form id="pet-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input type="text" name="nombre" placeholder="Nombre" class="border p-2 rounded" required />
+      <select name="especie" class="border p-2 rounded" required>
+        <option value="" disabled selected>Selecciona especie</option>
+        <option value="Perro">Perro</option>
+        <option value="Gato">Gato</option>
+      </select>      
+      <input type="text" name="raza" placeholder="Raza" class="border p-2 rounded" required />
+      <input type="number" name="edad" placeholder="Edad" class="border p-2 rounded" required />
+      <input type="text" name="peso" placeholder="Peso" class="border p-2 rounded" required />
+      <input type="file" name="imagen" accept="image/*" class="border p-2 rounded" required />
+      <input type="text" name="whatsapp" placeholder="WhatsApp" class="border p-2 rounded" required />
+      <input type="text" name="estado" placeholder="Estado (ej. Por adoptar)" class="border p-2 rounded" />
+      <button type="submit" class="col-span-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
+        Crear mascota
+      </button>
+    </form>
+  </div>
+
+  <!-- Sección: Cerrar sesión -->
+  <div id="logout-section" class="hidden text-center mt-4">
+    <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+      Cerrar sesión
+    </button>
+  </div>
+
+  <!-- Sección: Mascotas listadas -->
+  <section id="pets" class="py-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+        <input type="text" id="search" placeholder="Buscar"
+               class="px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full sm:w-auto" />
+        <select id="filter-species"
+                class="px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full sm:w-auto">
+          <option value="all">Todas las especies</option>
+          <option value="Perro">Perros</option>
+          <option value="Gato">Gatos</option>
+        </select>
+      </div>
+
+      <div id="pets-container"
+           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        <!-- mascotas renderizadas por JS -->
+      </div>
+    </div>
+  </section>
+
+<!-- Usuario logueado -->
+<div id="user-info" class="hidden text-center my-4 text-gray-700 font-medium">
+  Sesión activa como: <span id="user-email"></span>
+</div>
+
+<!-- Cerrar sesión -->
+<div id="logout-section" class="hidden text-center my-4">
+  <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+    Cerrar sesión
+  </button>
+</div>
+<!-- Modal de edición -->
+<div id="edit-modal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-2xl shadow-lg">
+    <h2 class="text-xl font-bold mb-4">Editar Mascota</h2>
+    <form id="edit-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input type="hidden" name="id" />
+      <input type="text" name="nombre" required />
+      <select name="especie" required>
+        <option value="Perro">Perro</option>
+        <option value="Gato">Gato</option>
+      </select>
+      <input type="text" name="raza" required />
+      <input type="number" name="edad" required />
+      <input type="text" name="peso" required />
+      <input type="text" name="whatsapp" required />
+      <input type="text" name="estado" required />
+      <input type="text" name="imagen" required />
+      <div class="col-span-full flex justify-end gap-2 mt-2">
+        <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-gray-300 rounded">Cancelar</button>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

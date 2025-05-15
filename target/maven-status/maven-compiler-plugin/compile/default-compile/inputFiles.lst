@@ -1,0 +1,16 @@
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\repository\MascotaRepository.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\controller\MascotaController.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\model\Admin.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\repository\AdminRepository.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\repository\UsuarioRepository.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\security\JwtUtil.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\model\LoginRequest.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\model\AuthResponse.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\security\JwtFilter.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\controller\AdminController.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\controller\AuthController.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\model\Mascota.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\GremioproyectApplication.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\controller\UsuarioController.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\model\Usuario.java
+D:\Opera\CRUD_El_Gran_Gremio-main\gremioproyect\gremioproyect\src\main\java\com\elgrangremio\gremioproyect\security\SecurityConfig.java
