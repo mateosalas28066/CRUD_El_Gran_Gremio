@@ -34,18 +34,23 @@ function renderPets(filteredPets = pets) {
 
     if (localStorage.getItem("token")) {
       const safePet = JSON.stringify(pet).replace(/'/g, "\'");
+
+      // Botón Editar
       petCard += `
-          <button onclick='openEditModal(${safePet})'
-                  class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">
-            ✏️ Editar
-          </button>`;
+        <button onclick='openEditModal(${safePet})' class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">
+          ✏️ Editar
+        </button>
+      `;
+
+      // Botón Eliminar
+      petCard += `
+        <button onclick='deletePet("${pet.id}")' class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">
+          🗑️ Eliminar
+        </button>
+      `;
     }
 
-    petCard += `
-        </div>
-      </div>
-    `;
-
+    petCard += `</div></div>`;
     container.innerHTML += petCard;
   });
 }
@@ -64,6 +69,36 @@ function filterPets() {
 
   renderPets(filteredPets);
 }
+
+async function deletePet(id) {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    alert("Debes iniciar sesión para eliminar una mascota.");
+    return;
+  }
+
+  try {
+    const response = await fetch(`/mascotas/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    });
+
+    if (response.ok) {
+      alert("Mascota eliminada con éxito");
+      loadPets(); // Actualiza la lista de mascotas
+    } else {
+      throw new Error("Error al eliminar mascota");
+    }
+  } catch (error) {
+    console.error("Error eliminando mascota:", error);
+    alert("Hubo un problema al eliminar la mascota");
+  }
+}
+
 
 function openModal(imgSrc) {
   const modal = document.getElementById("image-modal");
