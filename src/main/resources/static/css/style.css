@@ -906,5 +906,99 @@ iframe::-webkit-scrollbar {
   .footer__container {
     grid-template-columns: repeat(4, 1fr);
   }
+  #accessibility-menu button {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#accessibility-options {
+  min-width: 200px;
+}
+
+/* 🔳 Modo alto contraste */
+body.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea,
+body.high-contrast button,
+body.high-contrast .pets__card,
+body.high-contrast .modal-content {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+body.high-contrast input::placeholder,
+body.high-contrast textarea::placeholder {
+  color: #ccc !important;
+}
+
+body.high-contrast .pets__card p,
+body.high-contrast .pets__card h4,
+body.high-contrast .pets__card strong {
+  color: #ffffff !important;
+}
+
+body.high-contrast .adopt-button {
+  background: #fff !important;
+  color: #000 !important;
+  border: 1px solid #fff;
+}
+
+body.high-contrast .adopt-button:hover {
+  background: #ccc !important;
+}
+
+body.high-contrast img {
+  filter: contrast(1.2) brightness(0.9);
+}
+
+/* Ajuste específico para el formulario de crear mascota */
+body.high-contrast #create-section,
+body.high-contrast #create-section h2,
+body.high-contrast #create-section label,
+body.high-contrast #create-section input,
+body.high-contrast #create-section select {
+  color: #ffffff !important;
+}
+
+body.high-contrast #create-section {
+  background-color: #000 !important;
+  border: 2px solid #fff;
+}
+
+/* 🔠 Texto grande */
+body.large-text {
+  font-size: 1.25em;
+}
+
+body.large-text .pets__card {
+  font-size: 1.1em;
+}
+
+body.large-text input,
+body.large-text select,
+body.large-text button,
+body.large-text label,
+body.large-text p,
+body.large-text h1,
+body.large-text h2,
+body.large-text h3,
+body.large-text h4 {
+  font-size: 1.2em !important;
+}
+:focus-visible {
+  outline: 3px solid #1e00ff !important; /* color dorado */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+
+
+
 }
 
