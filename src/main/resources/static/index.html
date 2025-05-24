@@ -8,6 +8,21 @@
   <link rel="icon" href="fotos/logo-removebg-preview.ico" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+<!-- Botón flotante de accesibilidad -->
+<div id="accessibility-menu" class="fixed top-4 right-4 z-50">
+  <button id="accessibility-toggle" class="bg-blue-600 text-white px-3 py-2 rounded-full shadow-lg hover:bg-blue-700">
+    ♿ Accesibilidad
+  </button>
+  <div id="accessibility-options" class="mt-2 bg-white border rounded shadow-lg hidden p-3">
+    <button onclick="toggleHighContrast()" class="w-full text-left px-3 py-1 rounded hover:bg-gray-100">
+      🌓 Modo alto contraste
+    </button>
+    <button onclick="toggleLargeText()" class="w-full text-left px-3 py-1 rounded hover:bg-gray-100">
+  🔠 Texto grande
+</button>
+
+  </div>
+</div>
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Sección: Título -->
@@ -127,5 +142,7 @@
 </div>
 
   <script src="js/script.js"></script>
+  <!-- Contenedor de mensajes accesibles -->
+<div id="aria-status" role="status" aria-live="polite" class="sr-only"></div>
 </body>
 </html>
