@@ -89,6 +89,7 @@ async function deletePet(id) {
 
     if (response.ok) {
       alert("Mascota eliminada con éxito");
+      document.getElementById("aria-status").textContent = "Mascota eliminada con éxito.";
       loadPets(); // Actualiza la lista de mascotas
     } else {
       throw new Error("Error al eliminar mascota");
@@ -317,6 +318,21 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPets();
   checkLoginStatus();
 });
+// Mostrar/ocultar opciones de accesibilidad
+document.getElementById("accessibility-toggle").addEventListener("click", () => {
+  const options = document.getElementById("accessibility-options");
+  options.classList.toggle("hidden");
+});
+
+// Activar/desactivar alto contraste
+function toggleHighContrast() {
+  document.body.classList.toggle("high-contrast");
+}
+function toggleLargeText() {
+  document.body.classList.toggle("large-text");
+}
+
+
 document.getElementById("search").addEventListener("input", filterPets);
 document.getElementById("filter-species").addEventListener("change", filterPets);
 document.getElementById("pet-form").addEventListener("submit", createPet);
