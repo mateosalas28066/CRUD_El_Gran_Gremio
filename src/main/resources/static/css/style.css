@@ -970,6 +970,67 @@ body.high-contrast #create-section {
   background-color: #000 !important;
   border: 2px solid #fff;
 }
+/* Hero y contacto en alto contraste */
+body.high-contrast #nosotros,
+body.high-contrast #contacto,
+body.high-contrast section.bg-indigo-50,
+body.high-contrast section.bg-gray-100,
+body.high-contrast section.bg-white {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast p,
+body.high-contrast span,
+body.high-contrast a {
+  color: #fff !important;
+}
+
+/* Cambia también imágenes decorativas si es necesario ocultarlas */
+body.high-contrast img[alt="huella"] {
+  opacity: 0.1;
+}
+/* HERO + HEADER en modo alto contraste */
+body.high-contrast header,
+body.high-contrast #hero,
+body.high-contrast .hero-section,
+body.high-contrast .bg-indigo-100,
+body.high-contrast .bg-white {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Textos globales blancos */
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast p,
+body.high-contrast span,
+body.high-contrast a,
+body.high-contrast .text-gray-600,
+body.high-contrast .text-gray-700,
+body.high-contrast .text-indigo-600,
+body.high-contrast .text-indigo-800 {
+  color: #fff !important;
+}
+
+/* Títulos con fondo claro tipo "Bienvenido" */
+body.high-contrast .bg-indigo-200 {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+/* Ocultar huella decorativa si molesta */
+body.high-contrast img[alt="huella"] {
+  opacity: 0.05;
+}
+
+/* Si usas logos oscuros en modo claro */
+body.high-contrast img[alt="Logo"] {
+  filter: brightness(100);
+}
+
 
 /* 🔠 Texto grande */
 body.large-text {
@@ -996,6 +1057,80 @@ body.large-text h4 {
   outline-offset: 2px;
   border-radius: 4px;
 }
+/* Estilo para texto grande */
+body.large-text {
+  font-size: 1.125rem; /* Aumenta base */
+}
+
+body.large-text h1 {
+  font-size: 2.5rem !important;
+}
+body.large-text h2 {
+  font-size: 2rem !important;
+}
+body.large-text h3 {
+  font-size: 1.75rem !important;
+}
+body.large-text nav a,
+body.large-text .text-sm,
+body.large-text .text-base,
+body.large-text .text-lg,
+body.large-text .text-xl {
+  font-size: 1.25rem !important;
+}
+
+/* Ajuste para el logo y nombre en header */
+body.large-text header span,
+body.large-text header nav a {
+  font-size: 1.3rem !important;
+}
+body.large-text h1,
+body.large-text .text-5xl,
+body.large-text .text-6xl {
+  font-size: 4rem !important;
+}
+/* === Alto contraste: Instagram y footer === */
+body.high-contrast section,
+body.high-contrast footer {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast p,
+body.high-contrast a,
+body.high-contrast span {
+  color: #fff !important;
+}
+body.high-contrast .bg-gray-200 {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+body.high-contrast .text-gray-600 {
+  color: #fff !important;
+}
+body.high-contrast iframe[src*="instagram.com"] {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+/* Botones y elementos interactivos */
+body.high-contrast .bg-indigo-100 {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+body.high-contrast .text-indigo-600 {
+  color: #fff !important;
+}
+
+body.high-contrast .whatsapp-float img,
+body.high-contrast iframe {
+  filter: brightness(1.2);
+}
+
 
 
 

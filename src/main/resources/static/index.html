@@ -7,55 +7,110 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="fotos/logo-removebg-preview.ico" />
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<!-- Botón flotante de accesibilidad -->
-<div id="accessibility-menu" class="fixed top-4 right-4 z-50">
-  <button id="accessibility-toggle" class="bg-blue-600 text-white px-3 py-2 rounded-full shadow-lg hover:bg-blue-700">
-    ♿ Accesibilidad
-  </button>
-  <div id="accessibility-options" class="mt-2 bg-white border rounded shadow-lg hidden p-3">
-    <button onclick="toggleHighContrast()" class="w-full text-left px-3 py-1 rounded hover:bg-gray-100">
-      🌓 Modo alto contraste
+<body class="bg-gray-50 text-gray-800 scroll-smooth">
+
+  <!-- Header fijo -->
+  <header class="fixed w-full bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- LOGO a la izquierda -->
+      <div class="flex items-center space-x-3">
+        <img src="fotos/logo-removebg-preview.ico" alt="Logo" class="w-12 h-12 object-contain" />
+        <span class="text-xl font-bold text-indigo-600">El Gran Gremio</span>
+      </div>
+  
+      <!-- NAV a la derecha -->
+      <nav class="flex space-x-6 font-medium text-gray-700 items-center">
+        <a href="#nosotros" class="hover:text-indigo-600 flex items-center gap-1">
+          <span>Nosotros</span>
+        </a>
+        <a href="#pets" class="hover:text-indigo-600">Adopciones</a>
+        <a href="#contacto" class="hover:text-indigo-600">Contacto</a>
+        <a href="#login-section" class="hover:text-indigo-600">Iniciar sesión</a>
+      </nav>
+    </div>
+  </header>
+  
+  
+
+  <!-- Espaciador para el header fijo -->
+  <div class="h-20" id="inicio"></div>
+
+  <!-- Botón de accesibilidad -->
+  <div id="accessibility-menu" class="fixed top-4 right-4 z-50">
+    <button id="accessibility-toggle" class="bg-blue-600 text-white px-3 py-2 rounded-full shadow-lg hover:bg-blue-700">
+      ♿ Accesibilidad
     </button>
-    <button onclick="toggleLargeText()" class="w-full text-left px-3 py-1 rounded hover:bg-gray-100">
-  🔠 Texto grande
-</button>
-
+    <div id="accessibility-options" class="mt-2 bg-white border rounded shadow-lg hidden p-3">
+      <button onclick="toggleHighContrast()" class="w-full text-left px-3 py-1 rounded hover:bg-gray-100">🌓 Modo alto contraste</button>
+      <button onclick="toggleLargeText()" class="w-full text-left px-3 py-1 rounded hover:bg-gray-100">🔠 Texto grande</button>
+    </div>
   </div>
-</div>
-<body class="bg-gray-50 text-gray-800">
 
-  <!-- Sección: Título -->
-  <section class="text-center py-8">
-    <h1 class="text-3xl font-bold">🐾 Mascotas en Adopción 🐾</h1>
+  <!-- Sección: Nosotros -->
+  <section class="relative bg-indigo-100 py-16">
+    <!-- Imagen decorativa (huellita) -->
+    <img src="fotos/header-bg.png" alt="huella" class="absolute left-8 top-1/2 transform -translate-y-1/2 w-32 opacity-30" />
+  
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <span class="inline-block bg-indigo-200 text-indigo-800 text-sm px-4 py-1 rounded-full mb-4 font-semibold">Bienvenido</span>
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">EL Gran Gremio</h1>
+      <p class="text-lg text-gray-700">Amamos a las mascotas tanto como tú :)</p>
+      <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Nos aseguramos de que cada mascota encuentre un hogar lleno de amor y cuidados para una vida feliz y saludable.</p>
+    </div>
+  </section>
+  
+
+  <!-- Sección: Título y filtros -->
+  <section id="pets" class="py-12">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold">🐾 Mascotas en Adopción 🐾</h1>
+    </div>
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+        <input type="text" id="search" placeholder="Buscar" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full sm:w-auto" />
+        <select id="filter-species" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full sm:w-auto">
+          <option value="all">Todas las especies</option>
+          <option value="Perro">Perros</option>
+          <option value="Gato">Gatos</option>
+        </select>
+      </div>
+      <div id="pets-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"></div>
+    </div>
   </section>
 
   <!-- Sección: Login -->
-  <div id="login-section" class="text-center my-4">
-    <form id="login-form" class="max-w-md mx-auto grid gap-4">
-      <input type="email" name="email" placeholder="Correo electrónico" required class="p-2 border rounded" />
-      <input type="password" name="password" placeholder="Contraseña" required class="p-2 border rounded" />
-      <button type="submit" class="bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">Iniciar sesión</button>
-    </form>
-    <p id="login-status" class="text-sm text-gray-600 mt-2"></p>
-  </div>
-  <div id="register-section" class="text-center my-8">
-    <h2 class="text-xl font-bold mb-4">¿Aún no tienes cuenta? Regístrate</h2>
-    <form id="register-form" class="max-w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input type="text" name="nombre" placeholder="Nombre" required class="p-2 border rounded" />
-      <input type="text" name="apellido" placeholder="Apellido" required class="p-2 border rounded" />
-      <input type="email" name="email" placeholder="Correo electrónico" required class="p-2 border rounded" />
-      <input type="password" name="password" placeholder="Contraseña" required class="p-2 border rounded" />
-      <input type="text" name="telefono" placeholder="Teléfono" required class="p-2 border rounded" />
-      <input type="text" name="direccion" placeholder="Dirección" required class="p-2 border rounded" />
-      <button type="submit" class="col-span-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
-        Registrarme
-      </button>
-    </form>
-    <p id="register-status" class="mt-2 text-sm text-gray-600"></p>
-  </div>
+  <section id="login-section" class="text-center py-12 bg-white">
+    <div class="max-w-md mx-auto">
+      <h2 class="text-2xl font-bold mb-6 text-indigo-700">Iniciar sesión</h2>
+      <form id="login-form" class="grid gap-4">
+        <input type="email" name="email" placeholder="Correo electrónico" required class="p-2 border rounded" />
+        <input type="password" name="password" placeholder="Contraseña" required class="p-2 border rounded" />
+        <button type="submit" class="bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">Entrar</button>
+      </form>
+      <p id="login-status" class="text-sm text-gray-600 mt-2"></p>
+    </div>
+  </section>
 
-  <!-- Sección: Publicar mascota (visible solo si logueado) -->
+  <!-- Sección: Registro -->
+  <section class="text-center py-12 bg-gray-100">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-2xl font-bold mb-4 text-indigo-700">¿Aún no tienes cuenta? Regístrate</h2>
+      <form id="register-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" name="nombre" placeholder="Nombre" required class="p-2 border rounded" />
+        <input type="text" name="apellido" placeholder="Apellido" required class="p-2 border rounded" />
+        <input type="email" name="email" placeholder="Correo electrónico" required class="p-2 border rounded" />
+        <input type="password" name="password" placeholder="Contraseña" required class="p-2 border rounded" />
+        <input type="text" name="telefono" placeholder="Teléfono" required class="p-2 border rounded" />
+        <input type="text" name="direccion" placeholder="Dirección" required class="p-2 border rounded" />
+        <button type="submit" class="col-span-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Registrarme</button>
+      </form>
+      <p id="register-status" class="mt-2 text-sm text-gray-600"></p>
+    </div>
+  </section>
+
+  <!-- Sección: Crear mascota -->
   <div id="create-section" class="hidden max-w-2xl mx-auto p-4 bg-white shadow rounded-lg mb-6">
     <h2 class="text-xl font-semibold mb-4 text-center">Publicar una nueva mascota</h2>
     <form id="pet-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -64,85 +119,184 @@
         <option value="" disabled selected>Selecciona especie</option>
         <option value="Perro">Perro</option>
         <option value="Gato">Gato</option>
-      </select>      
+      </select>
       <input type="text" name="raza" placeholder="Raza" class="border p-2 rounded" required />
       <input type="number" name="edad" placeholder="Edad" class="border p-2 rounded" required />
       <input type="text" name="peso" placeholder="Peso" class="border p-2 rounded" required />
       <input type="file" name="imagen" accept="image/*" class="border p-2 rounded" required />
       <input type="text" name="whatsapp" placeholder="WhatsApp" class="border p-2 rounded" required />
       <input type="text" name="estado" placeholder="Estado (ej. Por adoptar)" class="border p-2 rounded" />
-      <button type="submit" class="col-span-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
-        Crear mascota
-      </button>
+      <button type="submit" class="col-span-full bg-green-600 text-white p-2 rounded hover:bg-green-700">Crear mascota</button>
     </form>
   </div>
 
-  <!-- Sección: Cerrar sesión -->
-  <div id="logout-section" class="hidden text-center mt-4">
-    <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-      Cerrar sesión
-    </button>
+  <!-- Usuario logueado -->
+  <div id="user-info" class="hidden text-center my-4 text-gray-700 font-medium">
+    Sesión activa como: <span id="user-email"></span>
   </div>
 
-  <!-- Sección: Mascotas listadas -->
-  <section id="pets" class="py-6">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-        <input type="text" id="search" placeholder="Buscar"
-               class="px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full sm:w-auto" />
-        <select id="filter-species"
-                class="px-4 py-2 border border-gray-300 rounded-md shadow-sm w-full sm:w-auto">
-          <option value="all">Todas las especies</option>
-          <option value="Perro">Perros</option>
-          <option value="Gato">Gatos</option>
-        </select>
-      </div>
+  <!-- Logout -->
+  <div id="logout-section" class="hidden text-center my-4">
+    <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Cerrar sesión</button>
+  </div>
 
-      <div id="pets-container"
-           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
-        <!-- mascotas renderizadas por JS -->
-      </div>
+  <!-- Sección: Contacto -->
+  <section id="contacto" class="py-12 bg-indigo-50">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-indigo-700 mb-4">Contáctanos</h2>
+      <p class="text-gray-700">Si deseas colaborar, adoptar o tienes preguntas, escríbenos a:</p>
+      <p class="mt-2 font-medium text-indigo-600">info@elgrangremio.org</p>
+      <p>📍 Cali, Colombia</p>
     </div>
   </section>
 
-<!-- Usuario logueado -->
-<div id="user-info" class="hidden text-center my-4 text-gray-700 font-medium">
-  Sesión activa como: <span id="user-email"></span>
-</div>
-
-<!-- Cerrar sesión -->
-<div id="logout-section" class="hidden text-center my-4">
-  <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-    Cerrar sesión
-  </button>
-</div>
-<!-- Modal de edición -->
-<div id="edit-modal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
-  <div class="bg-white rounded-lg p-6 w-full max-w-2xl shadow-lg">
-    <h2 class="text-xl font-bold mb-4">Editar Mascota</h2>
-    <form id="edit-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input type="hidden" name="id" />
-      <input type="text" name="nombre" required />
-      <select name="especie" required>
-        <option value="Perro">Perro</option>
-        <option value="Gato">Gato</option>
-      </select>
-      <input type="text" name="raza" required />
-      <input type="number" name="edad" required />
-      <input type="text" name="peso" required />
-      <input type="text" name="whatsapp" required />
-      <input type="text" name="estado" required />
-      <input type="text" name="imagen" required />
-      <div class="col-span-full flex justify-end gap-2 mt-2">
-        <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-gray-300 rounded">Cancelar</button>
-        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Guardar cambios</button>
-      </div>
-    </form>
+  <!-- Modal de edición -->
+  <div id="edit-modal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-2xl shadow-lg">
+      <h2 class="text-xl font-bold mb-4">Editar Mascota</h2>
+      <form id="edit-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="hidden" name="id" />
+        <input type="text" name="nombre" required />
+        <select name="especie" required>
+          <option value="Perro">Perro</option>
+          <option value="Gato">Gato</option>
+        </select>
+        <input type="text" name="raza" required />
+        <input type="number" name="edad" required />
+        <input type="text" name="peso" required />
+        <input type="text" name="whatsapp" required />
+        <input type="text" name="estado" required />
+        <input type="text" name="imagen" required />
+        <div class="col-span-full flex justify-end gap-2 mt-2">
+          <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-gray-300 rounded">Cancelar</button>
+          <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
+  <!-- Contenedor accesible -->
+  <div id="aria-status" role="status" aria-live="polite" class="sr-only"></div>
   <script src="js/script.js"></script>
-  <!-- Contenedor de mensajes accesibles -->
-<div id="aria-status" role="status" aria-live="polite" class="sr-only"></div>
+ <!-- Sección: Instagram -->
+<section class="bg-gray-50 py-12 px-4">
+  <div class="max-w-7xl mx-auto">
+    <!-- Encabezado -->
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-3xl font-bold text-gray-800">Instagram</h2>
+      <a href="https://www.instagram.com/elgrangremio/" target="_blank"
+   class="bg-indigo-100 text-indigo-600 p-3 rounded-full hover:bg-indigo-200 transition">
+  <i class="ri-instagram-line text-lg"></i>
+  <span>SÍGUENOS :D</span>
+</a>
+
+
+
+    </div>
+
+    <!-- Grid de publicaciones -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Publicación 1 -->
+      <div class="aspect-[9/16]">
+        <iframe class="w-full h-full rounded-lg shadow" 
+          src="https://www.instagram.com/p/DHtMrttxpbL/embed"
+          allowtransparency="true" loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Publicación 2 -->
+      <div class="aspect-[9/16]">
+        <iframe class="w-full h-full rounded-lg shadow" 
+          src="https://www.instagram.com/p/DHtMXS8xT97/embed"
+          allowtransparency="true" loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Publicación 3 -->
+      <div class="aspect-[9/16]">
+        <iframe class="w-full h-full rounded-lg shadow" 
+          src="https://www.instagram.com/p/DHtMTW8RkS7/embed"
+          allowtransparency="true" loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Publicación 4 -->
+      <div class="aspect-[9/16]">
+        <iframe class="w-full h-full rounded-lg shadow" 
+          src="https://www.instagram.com/p/DHtMasMRyrc/embed"
+          allowtransparency="true" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Botón WhatsApp -->
+<a href="https://wa.me/573104379226?text=¡Hola!%20Quisiera%20más%20información." class="whatsapp-float" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+</a>
+
+<!-- Footer -->
+<footer id="contact" class="bg-gray-100 text-gray-800">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+    <!-- Blog info -->
+    <div>
+      <h4 class="text-2xl font-bold text-indigo-800 mb-4">Blog infromativo sobre peluditos que se encuentran para adopcion</h4>
+    </div>
+
+    <!-- Nosotros -->
+    <div>
+      <h4 class="font-semibold text-lg mb-3">El Gran Gremio</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#nosotros" class="hover:text-indigo-600 transition">Nosotros</a></li>
+        <li><a href="#pets" class="hover:text-indigo-600 transition">Adopciones</a></li>
+        <li><a href="#contacto" class="hover:text-indigo-600 transition">Contacto y redes</a></li>
+      </ul>
+    </div>
+
+    <!-- Mapa -->
+    <div>
+      <h4 class="font-semibold text-lg mb-2">Localizacion</h4>
+      <p class="text-sm mb-2">Santiago de Cali, Colombia</p>
+      <div class="w-full aspect-video rounded-lg overflow-hidden shadow mb-4">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.817089857921!2d-76.5350823!3d3.3406754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a14e0c65f317%3A0xd2a21234b2b4f63d!2sEl%20Gran%20Gremio!5e0!3m2!1ses-419!2sco!4v1712414322674!5m2!1ses-419!2sco" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          class="rounded-xl shadow-lg">
+        </iframe>
+      </div>
+
+      <h4 class="font-semibold text-lg mb-2">¡Escribenos!</h4>
+      <p class="text-sm">+57 3104379226</p>
+      <p class="text-sm">contactoelgrangremio@gremio.com</p>
+    </div>
+
+    <!-- Redes -->
+    <div>
+      <h4 class="font-semibold text-lg mb-3">Siguenos :D</h4>
+      <div class="flex space-x-4">
+        <a href="https://www.instagram.com/elgrangremio/profilecard/?igsh=NGVtbGZjaW1ncjRh" class="bg-indigo-100 text-indigo-600 p-3 rounded-full hover:bg-indigo-200 transition">
+          <i class="ri-instagram-line text-lg"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-200 text-center py-4 text-sm text-gray-600">
+    Copyright © 2025 El Gran Gremio.
+  </div>
+</footer>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+
+
 </body>
 </html>
