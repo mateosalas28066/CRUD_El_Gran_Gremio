@@ -18,7 +18,7 @@ Permite a usuarios y administradores registrar, consultar, editar y gestionar ma
 
 ## 📸 Captura del frontend
 
-![El Gran Gremio Frontend](https://github.com/mateosalas28066/CRUD_El_Gran_Gremio/blob/main/src/main/resources/static/captura.png)
+![El Gran Gremio Frontend](https://github.com/mateosalas28066/CRUD_El_Gran_Gremio/blob/main/src/main/resources/static/image.png)
 
 ---
 
