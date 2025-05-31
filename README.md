@@ -35,9 +35,12 @@ Permite a usuarios y administradores registrar, consultar, editar y gestionar ma
 
 ## 👨‍💻 Autores
 
-**Luisa Valencia**
-**Sebastian Granobles***
-**Mateo Salas** 
+**Luisa Valencia**.
+
+**Sebastian Granobles**.
+
+**Mateo Salas**. 
+
 Proyecto final de POW Spring Boot, JWT y MongoDB.
 
 ---
